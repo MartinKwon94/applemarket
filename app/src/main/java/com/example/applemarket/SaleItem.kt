@@ -12,7 +12,7 @@ data class SaleItem(
     val SellerName: String,
     val Price: Int,
     val Address: String,
-    val InterestCnt: Int,
+    var InterestCnt: Int,
     val ChatCnt: Int,
-    val isLike: Boolean
+    var isLike: Boolean
 ) : Parcelable

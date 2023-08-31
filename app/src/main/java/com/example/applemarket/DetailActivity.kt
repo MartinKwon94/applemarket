@@ -1,5 +1,6 @@
 package com.example.applemarket
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -61,15 +62,16 @@ class DetailActivity : AppCompatActivity() {
             exit()
         }
 
-        binding.imageView8.setOnClickListener(R.drawable.heart__1_)
-        Snackbar.make(binding.underInfo, "관심 목록에 추가되었습니다.", Snackbar.LENGTH_SHORT).show()
-        isLike = false
+        binding.imageView8.setOnClickListener {
+            Snackbar.make(binding.underInfo, "관심 목록에 추가되었습니다.", Snackbar.LENGTH_SHORT).show()
+            isLike = false
+        }
     }
 
 
     fun exit() {
-        val Intent(this, MainActivity::class.java).apply{
-            putExtra("itemIndex", ItemPosition)
+        val intent = Intent(this, MainActivity::class.java).apply {
+            putExtra("itemIndex", itemPosition)
             putExtra("isLike", isLike)
         }
         setResult(RESULT_OK, intent)
