@@ -66,7 +66,7 @@ class ItemAdapter(private val mitems: MutableList<SaleItem>) :
         val tvItemTitle = binding.textView2
         val tvPrice = binding.textView4
         val tvAddress = binding.textView3
-        val tvItemChat = binding.textView6
+        val tvItemChat = binding.textView5
         val tvItemLike = binding.textView6
         val ivAdapterLike = binding.imageView5
 

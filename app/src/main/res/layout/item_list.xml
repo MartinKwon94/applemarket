@@ -38,8 +38,8 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="217dp"
-            android:layout_height="43dp"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
             android:layout_marginStart="30dp"
             android:ellipsize="end"
             android:maxLines="2"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="214dp"
+            android:layout_width="190dp"
             android:layout_height="25dp"
             android:maxLines="1"
             android:text="지금 보시는 이 글은 주소를 나타내는 텍스트뷰입니다."
@@ -97,7 +97,7 @@
             android:layout_width="25dp"
             android:layout_height="15dp"
             android:layout_marginEnd="5dp"
-            android:text="채팅"
+            android:text="23"
             android:textAlignment="center"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
