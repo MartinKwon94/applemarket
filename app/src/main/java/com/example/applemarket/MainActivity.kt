@@ -184,7 +184,7 @@ class MainActivity : AppCompatActivity() {
                 ad.setMessage("상품을 정말로 삭제하시겠습니까?")
                 ad.setPositiveButton("확인") { dialog, _ ->
                     dataList.removeAt(position)
-                    adapter.notifyItemRemove(position)
+                    adapter.notifyItemChanged(position)
                 }
                 ad.setNegativeButton("취소") { dialog, _ ->
                     dialog.dismiss()
@@ -197,8 +197,8 @@ class MainActivity : AppCompatActivity() {
             notification()
         }
 
-        val fadeIn = AlphaAnimation(of, if).apply { duration = 500 }
-            val fadeOut = AlphaAnimation (if, of).apply { duration = 500 }
+        val fadeIn = AlphaAnimation(0f, 1f).apply { duration = 500 }
+        val fadeOut = AlphaAnimation(1f, 0f).apply { duration = 500 }
         var isTop = true
 
         binding.recylerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -208,11 +208,11 @@ class MainActivity : AppCompatActivity() {
                     && newState == RecyclerView.SCROLL_STATE_IDLE
                 ) {
                     binding.fbScrollup.startAnimation(fadeOut)
-                    binding.fbScrollup.visibillity = View.GONE
+                    binding.fbScrollup.visibility = View.GONE
                     isTop = true
                 } else {
                     if (isTop) {
-                        binding.fbScrollup.visibillity = View.VISIBLE
+                        binding.fbScrollup.visibility = View.VISIBLE
                         binding.fbScrollup.startAnimation(fadeIn)
                         isTop = false
                     }
@@ -276,7 +276,7 @@ class MainActivity : AppCompatActivity() {
                 setShowBadge(true)
                 val uri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
                 val audioAttributes = AudioAttributes.Builder()
-                    .setContentType(AudioAttributes.COTENT_TYPE_SONIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .setUsage(AudioAttributes.USAGE_ALARM)
                     .build()
                 setSound(uri, audioAttributes)
@@ -286,13 +286,14 @@ class MainActivity : AppCompatActivity() {
 
             builder = NotificationCompat.Builder(this, channelId)
         } else {
-            builder.run {
-                setSmallIcon(R.mipmap.ic_launcher)
-                setWhen(System.currentTimeMillis())
-                setContentTitle("키워드 알림")
-                setContentText("설정한 키워드에 대한 알림이 도착했습니다!!")
-            }
-            manager.notify(11, builder.build())
+            builder = NotificationCompat.Builder(this)
         }
+        builder.run {
+            setSmallIcon(R.mipmap.ic_launcher)
+            setWhen(System.currentTimeMillis())
+            setContentTitle("키워드 알림")
+            setContentText("설정한 키워드에 대한 알림이 도착했습니다!!")
+        }
+        manager.notify(11, builder.build())
     }
 }
