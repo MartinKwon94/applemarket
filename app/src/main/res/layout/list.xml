@@ -12,27 +12,41 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
 
-        <ImageView
-            android:id="@+id/imageView3"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iconItemCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sample1" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/sample1" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="217dp"
             android:layout_height="43dp"
-            android:layout_marginStart="15dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:text="지금 보시는 이 글은 테스트 텍스트입니다. 지금 보시는 이 글은 테스트 텍스트입니다. 지금 보시는 이 글은 테스트 텍스트입니다. 지금 보시는 이 글은 테스트 텍스트입니다."
             android:textStyle="normal"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:layout_editor_absoluteX="145dp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -41,6 +55,7 @@
             android:maxLines="1"
             android:text="지금 보시는 이 글은 주소를 나타내는 텍스트뷰입니다."
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -50,6 +65,7 @@
             android:layout_height="wrap_content"
             android:text="100000000원"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
